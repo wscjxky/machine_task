@@ -12,9 +12,12 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 from sklearn.model_selection import cross_val_predict
 import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
 
 spamx = spambase[:, :57]
 spamy = spambase[:, 57]
+ss = StandardScaler()
+
 # dota2x = dota2results[:, 1:]
 # dota2y = dota2results[:, 0]
 features = ['YearRemodAdd', 'GarageArea', 'BsmtUnfSF', 'LotArea', 'TotalBsmtSF', 'BsmtFinSF1','1stFlrSF']
@@ -23,7 +26,6 @@ prediction = cross_val_predict(model, spamx, spamy, cv=10)
 ac_score=accuracy_score(spamy,prediction)
 print(ac_score)
 print(spamx.shape)
-#
 # for i in range(4):
 #     features.pop(random.randint(0, len(features)-1))
 #     print(features)
