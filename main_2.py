@@ -4,6 +4,9 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+t = train_data[(train_data['LotArea'] < 60000) & (train_data['LotArea'] > 0)] # 将训练集中LotArea小于60000的值存入t
+
+
 # 读取数据
 data = pd.read_csv('data/kaggle_house_price_prediction/kaggle_hourse_price_train.csv')
 # 丢弃有缺失值的特征（列）

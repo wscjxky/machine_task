@@ -12,7 +12,8 @@ from sklearn.metrics import recall_score
 from sklearn.metrics import f1_score
 from sklearn.model_selection import cross_val_predict
 import matplotlib.pyplot as plt
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler,MinMaxScaler,Normalizer
+from sklearn.preprocessing import Normalizer
 
 spamx = spambase[:, :57]
 spamy = spambase[:, 57]
@@ -22,6 +23,8 @@ ss = StandardScaler()
 # dota2y = dota2results[:, 0]
 features = ['YearRemodAdd', 'GarageArea', 'BsmtUnfSF', 'LotArea', 'TotalBsmtSF', 'BsmtFinSF1','1stFlrSF']
 model = LogisticRegression()
+spamx=MinMaxScaler().fit_transform(spamx)
+
 prediction = cross_val_predict(model, spamx, spamy, cv=10)
 ac_score=accuracy_score(spamy,prediction)
 print(ac_score)
