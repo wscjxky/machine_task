@@ -2,6 +2,7 @@
 import random
 
 import numpy as np
+np.pow
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import accuracy_score
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
